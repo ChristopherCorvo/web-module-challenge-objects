@@ -1,20 +1,51 @@
+
+
 ///////////////Menu Items (MVP)///////////////////
 
-const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
-const burger = {name: "Burger", price: 18, category: "Lunch"};
+const latte = {
+                name: "Cafe Latte", 
+                price: 4, 
+                category: "Drinks"
+              };
+
+
+
+const burger = {
+                  name: "Burger", 
+                  price: 18, 
+                  category: "Lunch",
+                  discount: function(string) {
+                    if(string === "teachers" || string === "students"){
+                      return (this.price) - ((25/100) * (this.price));
+                    } else if (string === "public") {
+                      return (this.price) - ((10/100) * (this.price));
+                    }
+                }};
+
+console.log(burger.discount("public"));
+
+
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
-function createMenuItem(name, cost, category){
-    /* Code here */
+function createMenuItem(name, price, category){
+    return newMenuItem = {
+      name: name,
+      price: price,
+      category: category
+    }
 }
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
+console.log(createMenuItem("pizza", 20, "dinner"));
+console.log(createMenuItem("grilled Cheese", 15, "lunch"));
+console.log(createMenuItem("omlet", 12, "breakfast"));
 
 
-/* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object that automatically calculates price given a string as a parameter. 
+/* Task 2: You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to your burger object 
+that automatically calculates price given a string as a parameter. 
 
 Your method should accept: 
 
@@ -70,7 +101,8 @@ getLastReview should accept:
   
 and should return a string in the format `name} gave the restaurant a {rating}, and their feedback was: {feedback}`
 
-For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: "this place is chill with really cool people, great for getting work done on weekdays"`.
+For example, if getLastReview is invoked passing the reviews array it will return `Reyna gave the restaurant a 3.5 star review and their feedback was: 
+"this place is chill with really cool people, great for getting work done on weekdays"`.
 */
 function getLastReview(/* code here */) {
     /* code here */
@@ -107,7 +139,8 @@ and should return an array of objects.
   For example, invoking getLongReviews(reviews) would return [
     {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly reccomend."},
     {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
-    {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." }]
+    {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, 
+    and not for me, but I think some would like it." }]
 */
   function getLongReviews(/* code here */) {
     /* code here */
