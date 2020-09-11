@@ -111,7 +111,7 @@ function addreview(array, name, feedback){
 }
 
 addreview(reviews, "Reyna", "this place is chill with really cool people, great for getting work done on weekdays")
-console.log(reviews);
+
 
 /*  Task 6: Write a function to return a review based on the index of the review in the array.
 
@@ -155,6 +155,9 @@ console.log(getLastReview(reviews));
 
 
 
+
+
+
 // ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
 // /** STRETCH 1: Write a function called `getReviewByRating` that returns an array containing all reviews in a certain range. Your function should accept: 
@@ -168,44 +171,21 @@ console.log(getLastReview(reviews));
 //     {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly reccomend."},
 //     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 // */
- 
- function getReviewByRating(array, rating) {
-    let newArray = []
-    
-    for (let i = 0; i < array.length; i++) {
-      if(reviews[i].rating >= 2 && reviews[i].rating <= 5){ 
-        // return newArray.push(reviews[i])
-        console.log("hi");
-      } else {
-        console.log("No")
-      }
-    
-    }
-    
+
+function getReviewByRating(array, stars) {
+  let newArray = []
+  
+  for (let i = 0; i < array.length; i++) {
+    if(reviews[i].rating >= stars && reviews[i].rating <= stars + .9){ 
+      newArray.push(reviews[i])
+    } 
   }
+  return newArray;
+}
+console.log(getReviewByRating(reviews, 4));
 
-  console.log(getReviewByRating(reviews, 4));
-  
 
 
-  // function getReviewByRating(array, rating) {
-  //   let newArray = []
-    
-  //   for (let i = 0; i < array.length; i++) {
-  //     if(reviews[i].rating >= 2 && reviews[i].rating <= 5){ 
-  //       // return newArray.push(reviews[i])
-  //       console.log("hi");
-  //     } else {
-  //       console.log("No")
-  //     }
-    
-  //   }
-    
-  // }
-
-  // console.log(getReviewByRating(reviews, 4));  
-
-  
 // /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
   
 // Your function should accept: 
@@ -220,10 +200,57 @@ console.log(getLastReview(reviews));
 //     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, 
 //     and not for me, but I think some would like it." }]
 // */
-//   function getLongReviews(/* code here */) {
-//     /* code here */
+  
+// Pedros Wisdom
+
+// function getLongReviews(array, numberOfWords, key) {
+//   let newArray=[]
+  
+//   for (let i = 0; i < array.key.length; i++) {
+    
+//     if(array.key.length >= numberOfWords){
+//       newArray.push()
+//     }
+    
+//     let stringLength = string.split(' ') // break a string into an array 
+
+    
 //   }
   
+//     console.log(array[1].key.length);
+//   }  
+  
+  
+// getLongReviews(reviews, 15, reviews.feedback)
+
+
+function getLongReviews(array, numberOfWords) {
+  let newArray=[]
+  let newString;
+  let totalWords;
+  let finalArray=[]
+  
+  for (let i = 0; i < array.length; i++) {
+    
+    newString = array[i].feedback // string
+    console.log(newString)
+
+    newArray = newString.split(' '); // string turned to array 
+    console.log(newArray);
+
+    totalWords = newArray.length // number of words
+    console.log(totalWords); 
+
+    if(totalWords >= numberOfWords){
+      finalArray.push(array[i]);
+    }
+
+}
+return finalArray;
+}
+  
+console.log(getLongReviews(reviews, 10));
+
 
 // /* STRETCH 3:  This challenge is not related to the data above! 
 
